@@ -6,6 +6,9 @@ const app = express()
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 
+
+//controllers and routes
+
 app.use('/places', require('./controllers/places'))
 
 app.get('/', (req, res) => {
