@@ -33,7 +33,7 @@ Project notes:
 
 As an avid resturant go-er, I find need an application that allows me to easily view reviews, and make a judgement to ensure on a locaton to ensure I have an enjoyable meal. 
 
-
+## Routes:
 
 
 | METHOD    |    PATH   |        PURPOSE  |
@@ -50,3 +50,36 @@ As an avid resturant go-er, I find need an application that allows me to easily 
 |DELETE     |/places:id/rant/randid     |Delete a rant (comment) about a particular place|
 |GET        |*                   |404 page (matches any route not defined above)|
 
+shoutout to this site for helping to create the table
+https://www.markdownguide.org/extended-syntax/#tables
+
+
+## Data
+
+places
+
+| Field    |    Type   |
+|:---------:| :------:     |
+|   _id     |  object ID  |
+| name      |string | 
+| city      |string   |
+| state      |string  |
+| cruisines  |string  |
+| pic        |string  |
+
+
+
+rants
+
+| Field    |    Type   |
+|:---------:| :------:          |
+|   _id     |  object ID
+| place_id   |  ref(places Object_ID)
+| rant    |Boolean         |
+| rating     |number     |
+| comment     |string      |
+| reviewer        |string   |
+
+
+
+https://github.com/HackerUSA-CE/API-Project-REST-Rant/blob/master/README.md
