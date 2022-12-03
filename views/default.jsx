@@ -23,6 +23,13 @@ function Def (html) {
                     </ul>
                 </nav>
                 {html.children}
+                {/* <div className="wrappter">
+                    Content
+                
+                    <div className="push"></div>
+                </div>
+                <footer className="footer"></footer> */}
+                {/* https://css-tricks.com/couple-takes-sticky-footer/ */}
             </body>
         </html>
     )
