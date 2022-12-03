@@ -1,8 +1,28 @@
 h1 {
     text-align: center;
-    color: cornflowerblue;
+    color: #77878B;
   }
-.homeimage {
-    size: 10vh;
 
+  body {
+    background-color: #F4F2F3;
   }
+
+  nav {
+    background-color: #77878B;
+  }
+
+  nav a{
+  text-decoration: none;
+  color: #F4F2F3;
+  }
+
+  nav li {
+    display: inline;
+    margin: 25px;
+  }
+
+ .col-sm-6 {
+  display: inline;
+  margin-left: auto;
+  
+ }
