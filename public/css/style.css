@@ -1,19 +1,19 @@
 h1 {
     text-align: center;
-    color: #77878B;
+    color: #A9927D;
   }
 
   body {
-    background-color: #F4F2F3;
+    background-color: #F2F4F3;
   }
 
   nav {
-    background-color: #77878B;
+    background-color: #0A0908;
   }
 
   nav a{
   text-decoration: none;
-  color: #F4F2F3;
+  color: #F2F4F3;
   }
 
   nav li {
@@ -26,6 +26,9 @@ h1 {
   margin-left: auto;
   
  }
+* {
+  color: 40476D
+}
 
 
  /* footer */
