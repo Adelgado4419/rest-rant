@@ -8,12 +8,7 @@ router.get('/new', (req, res) => {
 })
 
 
-//render place route
-router.get ('/', (req, res) => {
-  res.render('places/index', {places})
-})
-
-router.get('/places', (req, res) => {
+router.get('/:id/edit', (req, res) => {
   let id = Number(req.params.id)
   if (isNaN(id)) {
       res.render('error404')
@@ -22,12 +17,31 @@ router.get('/places', (req, res) => {
       res.render('error404')
   }
   else {
-  res.render('places/show', { place: places[id], id })
+    res.render('places/edit', { place: places[id] })
   }
 })
 
 
-//places page isnt working^^^
+//render place route
+router.get ('/', (req, res) => {
+  res.render('places/index', {places})
+})
+
+router.get('/:id', (req, res) => {
+  let id = Number(req.params.id)
+  if (isNaN(id)) {
+    res.render('error404')
+  }
+  else if (!places[id]) {
+    res.render('error404')
+  }
+  else {
+    res.render('places/show', { place: places[id], id })
+  }
+})
+
+
+//the link from the places to the individual page isnt working. Moving to next step for now. 
 
 
 router.get('/:id', (req, res) => {
@@ -43,18 +57,6 @@ router.get('/:id', (req, res) => {
   }
 })
 
-router.get('/:id/edit', (req, res) => {
-  let id = Number(req.params.id)
-  if (isNaN(id)) {
-      res.render('error404')
-  }
-  else if (!places[id]) {
-      res.render('error404')
-  }
-  else {
-    res.render('places/edit', { place: places[id] })
-  }
-})
 
 
 
