@@ -5,14 +5,14 @@ db.Place.create([{
     city: 'Seattle',
     state: 'WA',
     cuisines: 'Thai, Pan-Asian',
-    pic: '/images/h-thai-ml-tables.jpg',
+    pic: 'placekitten.com/200/200',
     founded: 1989
 }, {
     name: 'Coding Cat Cafe',
     city: 'Phoenix',
     state: 'AZ',
     cuisines: 'Coffee, Bakery',
-    pic: '/images/coffee-cat.jpg',
+    pic: 'placekitten.com/200/200',
     founded: 2020
 }])
 .then(() => {
@@ -23,3 +23,6 @@ db.Place.create([{
     console.log('Failure!', err)
     process.exit()
 })
+
+
+//in terminal, "node seeders/seed-places.js"
