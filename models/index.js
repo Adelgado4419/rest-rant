@@ -8,4 +8,6 @@ mongoose.connect(process.env.MONGO_URI, {
 // for more information https://arunrajeevan.medium.com/understanding-mongoose-connection-options-2b6e73d96de1
 
 module.exports.Place = require('./places')
+module.exports.Comment = require('./comment')
+
 
