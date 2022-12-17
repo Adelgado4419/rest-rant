@@ -3,39 +3,41 @@ const Def = require('../default')
 
 function show (data) {
     let comments = (
-      <h3 className="inactive">
-        No comments yet!
-      </h3>
+        <h3 className='inactive'>
+            No comments yet!
+        </h3>
     )
     let rating = (
-        <h3 className="inactive">
-          Not yet rated
+        <h3 className='inactive'>
+            Not yet rated
         </h3>
-      )
-      if (data.place.comments.length) {
-        let sumRatings = data.place.comments.reduce((tot, c) => {
-          return tot + c.stars
-        }, 0)
-        let averageRating = sumRatings / data.place.comments.length
-        rating = (
-          <h3>
-           {Math.round(averageRating)} stars
-          </h3>
-        )}
-      
+    )
     if (data.place.comments.length) {
-      comments = data.place.comments.map(c => {
-        return (
-          <div className="border">
-            <h2 className="rant">{c.rant ? 'Rant!' : 'Rave!'}</h2>
-            <h4>{c.content}</h4>
+        let sumRatings = data.place.comments.reduce((tot, c) => {
+            return tot + c.stars
+        }, 0)
+        let averageRating = Math.round(sumRatings / data.place.comments.length)
+        let stars = ''
+        for (let i = 0; i < averageRating; i++) {
+            stars += '⭐'
+        }
+        rating = (
             <h3>
-              <stong>- {c.author}</stong>
+                {stars} stars
             </h3>
-            <h4>Rating: {c.stars}</h4>
-          </div>
         )
-      })
+        comments = data.place.comments.map(c => {
+            return (
+                <div className='border col-sm-4'>
+                    <h2 className='rant'>{c.rant ? 'Rant! 😡' : 'Rave! 😁'} </h2>
+                    <h4>{c.content}</h4>
+                    <h3>
+                        <strong>- {c.author}</strong>
+                    </h3>
+                    <h4>Rating: {c.stars}</h4>
+                </div>
+            )
+        })
     }
     return (
         <Def>
@@ -45,6 +47,7 @@ function show (data) {
             <img src={data.place.pic} alt={data.place.name} />
             <h2>Rating</h2>
                 {rating}
+
             <p>Not Rated</p>
             <h2>Description</h2>
             <p>Located in {data.place.city}, {data.place.state} serving {data.place.cuisines}</p>
@@ -61,14 +64,7 @@ function show (data) {
             
             </div>
             <h2>Comments</h2>
-                <div className="container text-center">
-                    <div className="row align-items-start">
-                        <div className='col'>
-                              {comments}
-                              </div>
-                            </div>
-                        </div>
-               
+               {comments}
                 <h2>Got your own Rant or Rave?</h2>
                 <form action={`/places/${data.place.id}/comment`} method='POST'>
                 <div className= "container text-center">
@@ -108,5 +104,4 @@ function show (data) {
 }
 
 module.exports = show
-
 
